@@ -1,0 +1,14 @@
+html, body {
+  height: 100%;
+  width: 70%;
+  margin: auto;
+  padding: 10px;
+}
+
+table {
+  width: 10vw;
+}
+
+.bi-question-circle {
+margin-bottom: 3px;
+}

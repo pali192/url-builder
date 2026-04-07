@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>URL Builder</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <!-- upgrade jQuery to 5+ version -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!--jquery, shieldUI ??? -->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>-->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.2/jspdf.min.js"></script>-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.2/html2pdf.bundle.min.js"></script>
+</head>
+
+<body>
+  <h1>URL Builder</h1>
+  <button type="button" class="btn btn-light" title="How to use URL Builder">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-question-circle"
+      viewBox="0 0 16 16">
+      <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+      <path
+        d="M5.255 5.786a.237.237 0 0 0 .241.247h.825c.138 0 .248-.113.266-.25.09-.656.54-1.134 1.342-1.134.686 0 1.314.343 1.314 1.168 0 .635-.374.927-.965 1.371-.673.489-1.206 1.06-1.168 1.987l.003.217a.25.25 0 0 0 .25.246h.811a.25.25 0 0 0 .25-.25v-.105c0-.718.273-.927 1.01-1.486.609-.463 1.244-.977 1.244-2.056 0-1.511-1.276-2.241-2.673-2.241-1.267 0-2.655.59-2.75 2.286m1.557 5.763c0 .533.425.927 1.01.927.609 0 1.028-.394 1.028-.927 0-.552-.42-.94-1.029-.94-.584 0-1.009.388-1.009.94" />
+    </svg>
+
+  </button>
+  <form>
+    <!--<div class="form-group">
+      <label for="exampleFormControlInput1">Protocol</label>
+      <select class="custom-select">
+        <option value="1">https://</option>
+        <option value="2">http://</option>
+    </div> -->
+    <div class="form-group">
+      <label for="exampleFormControlInput1">Website URL</label>
+      <input type="url" class="form-control" id="exampleFormControlInput1" placeholder="https://www.example.com"
+        aria-describedby="url" required>
+    </div>
+    <small id="url" class="form-text text-muted">Please fill in the website URL</small>
+    </div>
+    <div class="form-group">
+      <label for="exampleFormControlInput2">Channel</label>
+      <select class="custom-select mb-1" id="channel">
+        <option selected>Open this select menu</option>
+        <option value="1">Paid Search</option>
+        <option value="2">Paid Shopping</option>
+        <option value="3">Paid Social Media</option>
+        <option value="4">Cross-Network</option>
+        <option value="5">Organic Social Media</option>
+        <option value="6">Organic Search</option>
+        <option value="7">CRM</option>
+        <option value="8">Display</option>
+        <option value="9">Affiliate</option>
+        <option value="10">Video</option>
+        <option value="11">Jobportal</option>
+        <option value="12">Referring Domains</option>
+        <option value="13">Internal</option>
+        <option value="14">Session Refresh</option>
+        <option value="15">Unknown Channels</option>
+        <option value="16">Other</option>
+    </div>
+    <!--<small id="url2" class="form-text text-muted">Choose your channel</small> -->
+    </select>
+  </form>
+  <form>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer01">Campaign Source*</label>
+        <input type="text" class="form-control" id="validationServer01" placeholder="utm_source" required>
+        <!--add class is-valid-->
+        <!--<div class="valid-feedback">
+          Looks good!
+        </div>-->
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer02">Campaign Medium*</label>
+        <input type="text" class="form-control" id="validationServer02" placeholder="utm_medium" required>
+        <!--add class is-valid-->
+        <!--<div class="valid-feedback">
+          Looks good!
+        </div>-->
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer03">Campaign Name*</label>
+        <input type="text" class="form-control" id="validationServer03" placeholder="utm_campaign" required>
+        <!--add class is-valid-->
+        <!--<div class="valid-feedback">
+          Looks good!
+        </div>-->
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="validationServer04">Campaign Term</label>
+        <input type="text" class="form-control" id="validationServer04" placeholder="utm_term">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer05">Campaign Content</label>
+        <input type="text" class="form-control" id="validationServer05" placeholder="utm_content">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer06">Source Platform</label>
+        <input type="text" class="form-control" id="validationServer06" placeholder="utm_source_platform">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer07">Creative Format</label>
+        <input type="text" class="form-control" id="validationServer07" placeholder="utm_creative_format">
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="validationServer08">Marketing Tactic</label>
+        <input type="text" class="form-control" id="validationServer08" placeholder="utm_marketing_tactic">
+      </div>
+    </div>
+    <button type="button" class="btn btn-primary">Create URL</button>
+    <button type="button" class="btn btn-outline-info">Clear table</button>
+    <button type="button" class="btn btn-secondary">Export as PDF</button>
+    <button type="button" class="btn btn-success">Export as Excel</button>
+    <div class=" form-check">
+      <input class="form-check-input" type="checkbox" id="flexCheckDefault">
+      <label class="form-check-label" for="flexCheckDefault">
+        Show/export with separate utm parameters
+      </label>
+    </div>
+  </form>
+  <br>
+  <small>*click on the 'Time' column, if you want to switch the order of the records from ascending to
+    descending</small>
+  <!-- for now -responsive, make better -->
+  <table class="table-responsive" id="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">URL</th>
+        <th scope="col">Date</th>
+        <th scope="col">Time</th>
+      </tr>
+    </thead>
+    <tbody id="tableBody">
+      <!-- Table body will be dynamically populated -->
+    </tbody>
+  </table>
+  <h3>How to use the URLBuilder</h3>
+  <p>
+    1. Enter the URL (starting with 'http://' or 'https://').<br>
+    2. Choose your desired Channel (some of the UTM parameters will be prefilled automatically).<br>
+    3. The first three UTM parameters are mandatory and always needs to be filled out.<br>
+    4. Dropdown fields which needs to be filled are highlighted (blue).<br>
+    5. Other 5 UTM parameters are optional, so they should not be always filled out.<br>
+    6. The greater the number of parameters, the better we can identify the campaign.<br>
+    7. Click on the 'EXPORT URL' button to export your desired URL.<br>
+
+
+    Your URLs will be stored in the URLs column in the table below.<br>
+    (stored with time/date and optionally also with the separate utm parameters)
+    It does not make any difference if your URL ist ending with or without a slash at the end.<br>
+    If there is a highlighted dropdown, choose the value from the dropdown or fill the cell manually.<br>
+    Use correct website URLs. https://www.example.com/, https://www.example.com/?parameter,
+    https://www.example.com, https://www.example.com?parameter<br><br>
+
+    We recommend that you always use lowercase letters, unless you have a specific purpose of using capital letters.<br>
+    Keep your tags as short as possible, but keep them unique, easy to remember and understand.<br>
+    Don't use a space, even when UTM parameters text seems to need one. Instead, separate words with plus +, underscore
+    _ or dash-.<br>
+    UTM tracking will not work as it should if it's tracking will look like broken links.<br>
+    Other characters must be used to separate two or more words.<br>
+    Ampersand already has a specific meaning when it comes to tracking links - it is the character that separates UTM
+    parameters.<br>
+    So it should not be used for anything else in that link.
+    Remember, only the first UTM tag needs a question mark placed before it - other tags should be preceded by an
+    ampersand.<br>
+    ‘#’ and ‘=’ cannot be used inside a UTM tag value. Don't use them.<br>
+    UTM tags are case-sensitive in GA, so for example 'Example' will be recorded as a different source to 'example'.
+  </p>
+  <script src="script.js"></script>
+</body>
+
+</html>
